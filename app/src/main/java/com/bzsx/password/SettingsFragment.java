@@ -64,7 +64,7 @@ public class SettingsFragment extends Fragment {
     private static final String BG_IMAGE_FILENAME = "app_background.png";
 
     // 检查更新 URL
-    private static final String CHECK_UPDATE_URL = "https://bzsx.lhx520.icu/check_version.php";
+    private static final String CHECK_UPDATE_URL = "https://mybzsx.com/check_version.php";
 
     // 背景图片相关视图
     private SeekBar seekBarAlpha;
@@ -84,7 +84,7 @@ public class SettingsFragment extends Fragment {
     // ======================== 在线更新下载相关 ========================
     // 下载 APK 的地址：服务器 check_version.php 返回的 url 字段优先，
     // 若接口没返回 url，则使用下面这个默认下载地址（可自行修改成你的 APK 直链）
-    private static final String DEFAULT_APK_URL = "https://bzsx.lhx520.icu/神奇的密码_1.3.3.apk";
+    private static final String DEFAULT_APK_URL = "https://mybzsx.com/神奇的密码_1.3.3.apk";
 
     // 当前要下载的地址、APK 文件、进度 UI
     private AlertDialog downloadDialog;
@@ -221,6 +221,7 @@ public class SettingsFragment extends Fragment {
         executorService.execute(() -> {
             String latestVersion = null;
             String errorMessage = null;
+            String changelog = "";
 
             try {
                 URL url = new URL(CHECK_UPDATE_URL);
@@ -241,6 +242,8 @@ public class SettingsFragment extends Fragment {
                     latestVersion = jsonObject.optString("version", null);
                     // 读取下载地址 url 字段（服务器返回的 APK 下载链接）
                     apkUrl = jsonObject.optString("url", "");
+                    // 读取更新日志 changelog 字段（服务器可选返回，支持 \n 换行）
+                    changelog = jsonObject.optString("changelog", "");
                 } else {
                     errorMessage = "服务器返回 " + connection.getResponseCode();
                 }
@@ -255,6 +258,7 @@ public class SettingsFragment extends Fragment {
             final String finalLatestVersion = latestVersion;
             final String finalErrorMessage = errorMessage;
             final String finalApkUrl = apkUrl;
+            final String finalChangelog = changelog;
 
             mainHandler.post(() -> {
                 // 关闭加载弹窗
@@ -280,9 +284,18 @@ public class SettingsFragment extends Fragment {
                                 .show();
                     } else {
                         // 本机版本 < 服务器版本（发现新版本）
+                        // 组装弹窗内容：版本信息 + 更新日志（服务器返回 changelog 时展示）
+                        StringBuilder msg = new StringBuilder();
+                        msg.append("最新版本：").append(finalLatestVersion)
+                           .append("\n你当前的版本：").append(finalCurrentVersion);
+                        if (finalChangelog != null && !finalChangelog.trim().isEmpty()) {
+                            msg.append("\n\n更新日志：\n").append(finalChangelog.trim());
+                        }
+                        msg.append("\n\n是否立即下载并更新？");
+
                         new AlertDialog.Builder(requireContext())
                                 .setTitle("发现新版本")
-                                .setMessage("最新版本：" + finalLatestVersion + "\n你当前的版本：" + finalCurrentVersion + "\n\n是否立即下载并更新？")
+                                .setMessage(msg.toString())
                                 .setPositiveButton("立即更新", (dialog, which) -> {
                                     String downloadUrl = (finalApkUrl != null && !finalApkUrl.isEmpty())
                                             ? finalApkUrl : DEFAULT_APK_URL;
@@ -290,7 +303,7 @@ public class SettingsFragment extends Fragment {
                                 })
                                 .setNegativeButton("稍后", null)
                                 .setNeutralButton("前往官网", (dialog, which) -> {
-                                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://bzsx.lhx520.icu/password.html"));
+                                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mybzsx.com/password.html"));
                                     startActivity(intent);
                                 })
                                 .show();
@@ -690,7 +703,7 @@ public class SettingsFragment extends Fragment {
 
         // 官方网站（点击打开，走浏览器）
         dialogView.findViewById(R.id.tv_contact_website).setOnClickListener(v ->
-                openWeb("https://bzsx.lhx520.icu/password.html", "无法打开网站"));
+                openWeb("https://mybzsx.com/password.html", "无法打开网站"));
 
         // 第二行：QQ群（点击复制群号，可在QQ内搜索群号加入）
         final String qqGroup = "241333711";

@@ -18,7 +18,7 @@
   </a>
   <!-- 协议 -->
   <a href="https://github.com/bzsx/bzsx_password/blob/main/LICENSE">
-    <img alt="License" src="https://img.shields.io/badge/License-AGPL%203.0-blue?style=for-the-badge"/>
+    <img alt="License" src="https://img.shields.io/badge/License-非商业开源-blue?style=for-the-badge"/>
   </a>
   <br>
   <!-- UI 框架 -->
@@ -101,32 +101,33 @@
 
 ## 📦 下载与安装
 
-- **下载地址**：[点击查看 APK](https://github.com/bzsx/bzsx_password/releases)
+- **最新版本**：v1.3.8（正式版）
+- **下载地址**：[点击查看 APK](https://github.com/bzsx/bzsx_password/releases) ｜ [官方网站](https://mybzsx.com/password.html)
 - **系统要求**：Android 7.0 及以上
 
 
 ## 🔍 检查更新
 
-**更新检查地址**：[https://bzsx.lhx520.icu/password.html](https://bzsx.lhx520.icu/password.html)
+**更新检查地址**：[https://mybzsx.com/password.html](https://mybzsx.com/password.html)
 
 
 ## 👤 关于作者
 
 - **制作**：宝藏水仙
-- **个人主页**：[https://bzsx.lhx520.icu](https://bzsx.lhx520.icu)
+- **个人主页**：[https://mybzsx.com](https://mybzsx.com)
 - **B站空间**：[宝藏水仙的B站主页](https://space.bilibili.com/3546612747995937)
 
 
 ## 📄 许可证
 
-本项目采用 **GNU Affero General Public License v3.0 (AGPL-3.0)** 开源协议。
+本项目采用 **宝藏水仙非商业开源许可证 v1.0（Baozang Shuixian Non-Commercial Open Source License）**。
 
 你可以自由地使用、学习、修改和分发本项目的源代码，但必须遵守以下核心条款：
 
 1. **禁止商用**：你**不可以**将本软件或其修改版本用于任何形式的商业目的（包括但不限于销售、收费服务、广告盈利等）。
 2. **源代码归属**：本项目的源代码所有权和知识产权归 **宝藏水仙** 所有。
 3. **专利授权**：如果你对本项目有任何贡献，你自动授予项目作者和所有使用者一项永久的、全球性的、免费的专利许可，但你不能利用本项目的代码来发起任何专利诉讼。
-4. **开源传承**：如果你修改或基于本项目衍生了新的软件，你**必须**同样使用 `AGPL-3.0` 协议开源，并保留原始的版权和许可声明。
+4. **开源传承**：如果你修改或基于本项目衍生了新的软件，你**必须**同样使用本许可证开源，并保留原始的版权和许可声明。
 
 完整的协议文本请参见项目根目录下的 `LICENSE` 文件。
 

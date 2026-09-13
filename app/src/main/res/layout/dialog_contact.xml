@@ -41,7 +41,7 @@
         android:id="@+id/tv_contact_website"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="官方网站：\nhttps://bzsx.lhx520.icu/password.html"
+        android:text="官方网站：\nhttps://mybzsx.com/password.html"
         android:textSize="13sp"
         android:textColor="?attr/colorPrimary"
         android:lineSpacingExtra="4dp"
