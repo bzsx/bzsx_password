@@ -84,7 +84,7 @@ public class SettingsFragment extends Fragment {
     // ======================== 在线更新下载相关 ========================
     // 下载 APK 的地址：服务器 check_version.php 返回的 url 字段优先，
     // 若接口没返回 url，则使用下面这个默认下载地址（可自行修改成你的 APK 直链）
-    private static final String DEFAULT_APK_URL = "https://mybzsx.com/神奇的密码_1.3.3.apk";
+    private static final String DEFAULT_APK_URL = "https://mybzsx.com/file/apk/p_1.3.8.apk";
 
     // 当前要下载的地址、APK 文件、进度 UI
     private AlertDialog downloadDialog;
